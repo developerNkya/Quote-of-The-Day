@@ -1,18 +1,29 @@
 import React from 'react';
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonText } from '@ionic/react';
 
+interface HomeCardProps {
+  quote: string;
+  author: string;
+}
 
-const HomeCard: React.FC = () => {
+const HomeCard: React.FC<HomeCardProps> = ({ quote, author }) => {
   return (
     <IonCard>
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      <img
+        alt="Silhouette of mountains"
+        src="assets/images/quote_wallpaper.jpg"
+      />
       <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
-        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+        <IonCardTitle>Quote of the Day</IonCardTitle>
       </IonCardHeader>
-
-      <IonCardContent>Here&aposs a small text description for the card content. Nothing more, nothing less.</IonCardContent>
+      <IonCardContent>
+        &quot;{quote}&quot;
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <IonText>— {author}</IonText>
+        </div>
+      </IonCardContent>
     </IonCard>
   );
-}
+};
+
 export default HomeCard;
